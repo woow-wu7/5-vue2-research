@@ -1,24 +1,17 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import { getRoutesModule } from '../utils'
 
 Vue.use(VueRouter)
+
+
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'SystemType',
-    component: () => import(/* webpackChunkName: "SystemType" */ '../views/SystemType.vue'),
-    children: [
-      {
-        path: '/vue-router',
-        name: 'VueRouter',
-        component: () => import(/* webpackChunkName: "VueRouter" */ '../views/VueRouter.vue')
-      }, {
-        path: '/split-chunk',
-        name: 'SplitChunk',
-        component: () => import(/* webpackChunkName: "SplitChunk" */ '../views/SplitChunk.vue')
-      },
-    ]
+    name: 'Layout',
+    component: () => import(/* webpackChunkName: "Layout" */ '../views/Layout.vue'),
+    children: getRoutesModule()
   },
 ]
 
