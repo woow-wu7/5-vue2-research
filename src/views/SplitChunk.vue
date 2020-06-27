@@ -1,6 +1,7 @@
 <template>
   <div class="split-chunk">
     <div>split-chunk</div>
+    <BaseButton />
   </div>
 </template>
 

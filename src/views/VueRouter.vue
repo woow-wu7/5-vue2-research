@@ -1,6 +1,7 @@
 <template>
   <div class="vue-router">
     <div>vue-router</div>
+    <!-- <BaseButton /> -->
   </div>
 </template>
 
