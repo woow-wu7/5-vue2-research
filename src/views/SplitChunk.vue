@@ -11,6 +11,13 @@ export default {
   data() {
     return {
     };
+  },
+  mounted() {
+    this.$BaseToast({
+      message: 'toast',
+      type: 'error',
+      duration: 3000
+    })
   }
 };
 </script>
