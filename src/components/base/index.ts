@@ -7,5 +7,8 @@ requireContext.keys().forEach(fileName => {
   const componentModule = requireContext(fileName)
   // console.log(componentModule, 'componentModule')
   const component = componentModule.default
+  if (component.name === 'BaseToast') {
+    return
+  }
   Vue.component(component.name, component)
 })
