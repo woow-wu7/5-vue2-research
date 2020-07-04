@@ -1,5 +1,5 @@
 export const getRoutesModule = function() {
-  let modules: any[] = []
+  let modules: RoutesType[] = []
   const requireContext = require.context('../router', false, /\.ts$/)
 
   requireContext.keys().forEach(module => {
@@ -18,4 +18,12 @@ export const getSelectOptions = () => {
       label: obj.selectName
     }
   })
+}
+
+
+interface RoutesType {
+  path: string;
+  name: string;
+  component: any;
+  selectName?: string;
 }

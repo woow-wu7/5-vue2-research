@@ -8,9 +8,15 @@
 <script>
 export default {
   name: "SplitChunk",
+  data() {
+    return {
+    };
+  },
   mounted() {
     this.$BaseToast({
-      message: '22'
+      message: 'toast',
+      type: 'error',
+      duration: 3000
     })
   }
 };
