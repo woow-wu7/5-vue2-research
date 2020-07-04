@@ -8,7 +8,9 @@
     </el-header>
 
     <el-container>
-      <el-aside class="content-aside">Aside</el-aside>
+      <el-aside class="content-aside">
+        <LeftMenu />
+      </el-aside>
       <el-container>
         <el-main>
           <router-view></router-view>
@@ -20,10 +22,13 @@
 
 <script>
 import SystemTypeSelect from '../components/system-type-select'
+import LeftMenu from '../components/left-menu'
+
 export default {
   name: "systemType",
   components: {
-    SystemTypeSelect
+    SystemTypeSelect,
+    LeftMenu,
   }
 };
 </script>

@@ -10,9 +10,19 @@ export default {
   name: "SystemTypeSlect",
   data() {
     return {
-      value: "",
+      value: "learn",
       options: getSelectOptions()
     };
+  },
+  beforeMount() {
+    // 用于刷新时，获取当前路由状态
+    const currentPath =  this.$route.path.slice(1)
+    if (currentPath) {
+      this.value = this.$route.path.slice(1)
+    } else {
+      // 初始化时，跳转到learn路由
+      this.$router.push('/learn')
+    }
   },
   methods: {
     change(value) {
@@ -20,6 +30,6 @@ export default {
         path: value
       });
     }
-  }
+  },
 };
 </script>
