@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     change(value) {
-      this.$router.replace(value);
+      console.log(value, 'value')
+      this.$router.push(`/${value}`);
     }
   },
 };
