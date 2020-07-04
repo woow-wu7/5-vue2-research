@@ -21,7 +21,7 @@ const learnRoutes = [
                             {
                                 path: '/learn/source-code/vue/nextTick',
                                 name: 'LearnSourceCodeVueNextTick',
-                                component: () => import(/* webpackChunkName: "LearnSourceCodeVue" */ '../components/learn-source-code/vue-source/nextTick/index.vue'),
+                                component: () => import(/* webpackChunkName: "LearnSourceCodeVueNext" */ '../components/learn-source-code/vue-source/nextTick/index.vue'),
                                 MenuName: 'nextTick',
                             }
                         ]
