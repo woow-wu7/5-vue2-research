@@ -6,57 +6,33 @@
     @close="handleClose"
     router
   >
-    <div v-for="(superValue) in menuData" :key="superValue.name">
-
-      <div v-if="superValue.children">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-menu"></i>
-            <span>{{superValue.MenuName}}</span>
-          </template>
-          <div v-for="(subValue) in superValue.children" :key="subValue.name">
-
-            <div v-if="subValue.children">
-              <el-submenu index="1-2-1">
-                <span slot="title">{{subValue.MenuName}}</span>
-                
-                <div v-if="subValue.children">
-                  <el-menu-item
-                    v-for="grandson in subValue.children"
-                    :key="grandson.name"
-                    :index="grandson.path"
-                  >{{grandson.MenuName}}</el-menu-item>
-                </div>
-                <div v-else>
-                  <el-menu-item :index="grandson.path">{{grandson.MenuName}}</el-menu-item>
-                </div>
-              </el-submenu>
-            </div>
-            <div v-else>
-              <el-menu-item :index="subValue.path">{{subValue.MenuName}}</el-menu-item>
-            </div>
-          </div>
-        </el-submenu>
-      </div>
-      <div v-else>
-        <el-menu-item>{{superValue.MenuName}}</el-menu-item>
-      </div>
-    </div>
+    <RecursionLeftMenu :menuData="menuData" v-if="menuData" />
+    <div v-else>menu</div>
   </el-menu>
 </template>
 
 <script>
+import { routes } from "../../router/index";
 import learnRouter from "../../router/learn-routes";
+import RecursionLeftMenu from "./left-menu";
 
 export default {
   name: "LeftMenu",
+  components: {
+    RecursionLeftMenu
+  },
   data() {
     return {
       menuData: learnRouter[0].children
     };
   },
+  watch: {
+    $route() {
+      this.mathMenuPath()
+    }
+  },
   mounted() {
-    console.log(this.menuData);
+    this.mathMenuPath()
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -64,6 +40,15 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    mathMenuPath() {
+      const currentPath = this.$route.path;
+      routes[0].children.forEach(item => {
+        if (currentPath.match(item.path)) {
+          console.log(item.children, "222");
+          this.menuData = item.children;
+        }
+      });
     }
   }
 };
