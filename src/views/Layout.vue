@@ -4,7 +4,9 @@
       <div class="header-left">
         <SystemTypeSelect />
       </div>
-      <div class="header-right" />
+      <div class="header-right">
+        <TopMenu />
+      </div>
     </el-header>
 
     <el-container>
@@ -21,14 +23,16 @@
 </template>
 
 <script>
-import SystemTypeSelect from '../components/system-type-select'
-import LeftMenu from '../components/left-menu'
+import SystemTypeSelect from "../components/system-type-select";
+import LeftMenu from "../components/left-menu";
+import TopMenu from "../components/top-menu";
 
 export default {
   name: "systemType",
   components: {
     SystemTypeSelect,
     LeftMenu,
+    TopMenu
   }
 };
 </script>
@@ -60,7 +64,7 @@ $aside-width = 250px;
 </style>
 <style lang="stylus">
 .content-aside {
-  width: 250px!important;
+  width: 250px !important;
   // line-height: calc(100vh - 60px);
 }
 </style>

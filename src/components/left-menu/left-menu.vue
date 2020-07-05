@@ -11,7 +11,10 @@
         </el-submenu>
       </div>
       <div v-else>
-        <el-menu-item :index="item.path">{{item.menuName}}</el-menu-item>
+        <el-menu-item :index="item.path">
+          <i :class="item.icon"></i>
+          <span slot="title">{{item.menuName}}</span>
+        </el-menu-item>
       </div>
     </div>
   </div>
@@ -30,6 +33,6 @@ export default {
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
