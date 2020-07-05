@@ -1,5 +1,8 @@
 <template>
-  <div class="learn-source-code-vue">learn-source-code-vue</div>
+  <div class="learn-source-code-vue">
+    learn-source-code-vue
+    <router-view />
+  </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div class="top-menu">
-    <el-dropdown show-timeout="1">
+    <el-dropdown :show-timeout="1">
       <span class="el-dropdown-link">
         一些官网链接
         <i class="el-icon-arrow-down el-icon--right"></i>
@@ -27,6 +27,18 @@ export default {
         {
           linkName: "Vue 官网",
           path: "https://cn.vuejs.org/"
+        },
+        {
+          linkName: "Vue-cli 官网",
+          path: "https://cli.vuejs.org/zh/"
+        },
+        {
+          linkName: "Vue-Router 官网",
+          path: "https://router.vuejs.org/zh/"
+        },
+        {
+          linkName: "Vuex 官网",
+          path: "https://vuex.vuejs.org/zh/"
         }
       ]
     };
@@ -44,13 +56,15 @@ export default {
   display: flex;
   align-items: center;
 }
+
 .link-a {
-  cursor pointer
-  color: #5b8bff
-  text-decoration none
-  margin: 20px
-  line-height: 37px
+  cursor: pointer;
+  color: #5b8bff;
+  text-decoration: none;
+  margin: 20px;
+  line-height: 37px;
 }
+
 .el-dropdown-link {
   color: white;
 }
