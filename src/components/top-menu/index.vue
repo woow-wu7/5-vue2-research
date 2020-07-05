@@ -1,7 +1,7 @@
 <template>
   <div class="top-menu">
     <el-dropdown show-timeout="1">
-      <span class="el-dropdown-link" style="color: white; cursor: pointer;">
+      <span class="el-dropdown-link">
         一些官网链接
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
@@ -50,5 +50,8 @@ export default {
   text-decoration none
   margin: 20px
   line-height: 37px
+}
+.el-dropdown-link {
+  color: white;
 }
 </style>
