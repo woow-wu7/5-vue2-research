@@ -1,4 +1,4 @@
-const path = require('path')
+import path = require('path');
 
 module.exports = {  
   runtimeCompiler: true,  // runtime + compiler 版本
@@ -9,6 +9,7 @@ module.exports = {
       port: 8888,
       open: true,
       hot: true,
+      proxy: 'http://p.3.cn/'
     }
   }
 }

@@ -39,6 +39,10 @@ export default {
         {
           linkName: "Vuex 官网",
           path: "https://vuex.vuejs.org/zh/"
+        },
+        {
+          linkName: "axios 官网",
+          path: "https://github.com/axios/axios"
         }
       ]
     };

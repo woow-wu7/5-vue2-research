@@ -33,7 +33,7 @@ export default {
     async updateMessage2() {
       this.message = "更新了";
       console.log(this.$refs.messageDom.innerHTML, "DOM - 未用nextTick");
-      await this.$nextTick().then();
+      await this.$nextTick();
       console.log(this.$refs.messageDom.innerHTML, "DOM - 用了nextTick");
     }
   }
