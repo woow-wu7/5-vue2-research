@@ -15,3 +15,10 @@ export const getPrice = ({skuIds, type}: Iprice) => {
     }
   })
 };
+
+export const getPrice2 = () => {
+  return axios({
+    method: 'get',
+    url: 'http://localhost:3000/',
+  })
+};
