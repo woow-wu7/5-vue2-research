@@ -28,11 +28,11 @@ export default {
   },
   watch: {
     $route() {
-      this.mathMenuPath()
+      this.mathMenuPath();
     }
   },
   mounted() {
-    this.mathMenuPath()
+    this.mathMenuPath();
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -43,12 +43,14 @@ export default {
     },
     mathMenuPath() {
       const currentPath = this.$route.path;
-      routes[0].children.forEach(item => {
-        if (currentPath.match(item.path)) {
-          console.log(item.children, "222");
-          this.menuData = item.children;
-        }
-      });
+      if (routes[0].children) {
+        routes[0].children.forEach(item => {
+          if (currentPath.match(item.path)) {
+            console.log(item.children, "222");
+            this.menuData = item.children;
+          }
+        });
+      }
     }
   }
 };

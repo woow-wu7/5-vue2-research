@@ -6,4 +6,8 @@
 
 <style lang="stylus">
 @import './config/stylus/reset.css';
+
+html, body, #app{
+  height: 100%;
+}
 </style>

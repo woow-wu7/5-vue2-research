@@ -10,6 +10,11 @@ Vue.use(VueRouter)
 export const routes: Array<RouteConfig> = [
   {
     path: '/',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "Layout" */ '../views/login.vue'),
+  },
+  {
+    path: '/home',
     name: 'Layout',
     component: () => import(/* webpackChunkName: "Layout" */ '../views/Layout.vue'),
     children: getRoutesModule()
