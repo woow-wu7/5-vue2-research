@@ -44,7 +44,7 @@ export default {
   align-items: center;
 
   .wrap {
-    width: 200px;
+    width: 250px;
     height: 300px;
 
     .login-button {

@@ -38,13 +38,13 @@ const LoginModule = {
             if (res.data) {
                 console.log(this, 'this')
                 context.commit('getToken', res.data.token)
-                Message({
-                    message: '登录成功',
-                    type: 'success'
-                });
                 router.replace('/home')
+                // console.log(router)
+                // Message({
+                //     message: '登录成功',
+                //     type: 'success'
+                // });
                 // window.history.length = 1 只能读不能写
-                console.log(router)
             }
         },
     }

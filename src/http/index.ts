@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '../store'
+import { Message } from 'element-ui'
 
 const baseURL = ''
 const headers = {
@@ -29,8 +30,21 @@ axiosInstance.interceptors.request.use(config => {
 
 
 axiosInstance.interceptors.response.use(response => {
+  const { config, status, statusText } = response
+  if (status === 200) {
+    if (config && config.method === 'post') {
+      Message({
+        message: statusText,
+        type: 'success'
+      });
+    }
+  } else {
+    Message({
+      message: '请求失败',
+      type: 'error'
+    });
+  }
   return response
-  console.log(response, 'response')
 }, error => {
   return Promise.reject(error)
 })

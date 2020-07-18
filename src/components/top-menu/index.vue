@@ -2,7 +2,7 @@
   <div class="top-menu">
     <el-dropdown :show-timeout="1">
       <span class="el-dropdown-link">
-        一些官网链接
+        <span class="site-link">一些官网链接</span>
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
@@ -71,5 +71,9 @@ export default {
 
 .el-dropdown-link {
   color: white;
+}
+
+.site-link {
+  cursor pointer
 }
 </style>
