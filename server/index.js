@@ -23,8 +23,36 @@ app.post('/login', (req, res) => new Promise(resolve => {
     if (req.body && req.body.name === 'admin01') {
       resolve()
     }
-  }, 1000)})
+  }, 1000)
+})
   .then(() => res.json({ token: 'token12345678' }))
+  .catch(err => console.log(err))
+)
+
+app.get('/table', (req, res) => new Promise(resolve => {
+  setTimeout(() => {
+    resolve()
+  }, 1000)
+})
+  .then(() => res.json({
+    tableData: [{
+      date: '2016-05-02',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }, {
+      date: '2016-05-04',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1517 弄'
+    }, {
+      date: '2016-05-01',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1519 弄'
+    }, {
+      date: '2016-05-03',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1516 弄'
+    }]
+  }))
   .catch(err => console.log(err))
 )
 
