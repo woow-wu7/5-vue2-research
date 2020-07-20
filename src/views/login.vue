@@ -5,7 +5,7 @@
       <div style="margin-top: 15px;"></div>
       <el-input placeholder="请输入密码" v-model="password" show-password></el-input>
       <div style="margin-top: 15px;"></div>
-      <el-button type="primary" class="login-button" @click="login">登录</el-button>
+      <el-button type="primary" class="login-button" @click="login" :loading="loading">登录</el-button>
     </div>
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
     return {};
   },
   computed: {
-    ...mapState("LoginModule", ["name", "password"]) // 等同于  ...mapState('LoginModule', {name: state => state.name, password: state => state.password})
+    ...mapState("LoginModule", ["name", "password"]), // 等同于  ...mapState('LoginModule', {name: state => state.name, password: state => state.password})
+    ...mapState(['loading'])
   },
   methods: {
     ...mapActions("LoginModule", ["getPrice"]),

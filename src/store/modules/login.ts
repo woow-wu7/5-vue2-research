@@ -1,7 +1,7 @@
 import request from '../../http'
-import axios from 'axios'
-import vue from 'vue'
-import { Message } from 'element-ui';
+// import axios from 'axios'
+// import vue from 'vue'
+// import { Message } from 'element-ui';
 import router from '../../router'
 
 interface PLogin {
@@ -26,6 +26,8 @@ const LoginModule = {
     },
     actions: {
         async getPrice(context: { commit: Function }, { name, password }: PLogin) {
+            console.log(context, 'context')
+            context.commit('changeLoading', true, { root: true})
             const res: any = await request({
                 method: 'post',
                 url: '/api/login',
@@ -38,6 +40,7 @@ const LoginModule = {
             if (res.data) {
                 console.log(this, 'this')
                 context.commit('getToken', res.data.token)
+                context.commit('changeLoading', false, { root: true})
                 router.replace('/home')
                 // console.log(router)
                 // Message({

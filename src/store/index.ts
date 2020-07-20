@@ -9,9 +9,13 @@ const cancelFns: any[] = []
 
 export default new Vuex.Store({
   state: {
-    cancelFns
+    cancelFns,
+    loading: false
   },
   mutations: {
+    changeLoading(state, payload) {
+      state.loading = payload
+    }
   },
   actions: {
   },

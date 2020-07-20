@@ -1,15 +1,41 @@
 import {getTableDate} from '../../http/el-ui'
-import { createLogger } from 'vuex'
+// import { createLogger } from 'vuex'
 
 const ElUi = {
     namespaced: true,
     state() {
         return {
-            tableData: []
+            tableData: [],
+            tableColConfig: [
+                {
+                    type: "selection",
+                    id: 1,
+                },
+                {
+                    prop: 'date',
+                    label: '日期',
+                    id: 2,
+                },
+                {
+                    prop: 'name',
+                    label: '姓名',
+                    id: 3,
+                },
+                {
+                    prop: 'address',
+                    label: '地址',
+                    id: 4,
+                },
+                {
+                    label: '操作',
+                    slot: 'ope',
+                    id: 5,
+                }
+            ]
         }
     },
     mutations: {
-        setTableData(state: any, payload: any) {
+        setTableData(state: {tableData: []}, payload: []) {
             state.tableData = payload
         }
     },
