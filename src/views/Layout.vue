@@ -1,23 +1,21 @@
 <template>
-  <el-container>
+  <el-container ref="container">
     <el-header id="header">
-      <div class="header-left">
+      <el-aside width="250px" class="header-left">
         <SystemTypeSelect />
-      </div>
-      <div class="header-right">
+      </el-aside>
+      <el-main class="header-right">
         <TopMenu />
-      </div>
+      </el-main>
     </el-header>
 
     <el-container>
       <el-aside class="content-aside">
         <LeftMenu />
       </el-aside>
-      <el-container>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-      </el-container>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -32,8 +30,14 @@ export default {
   components: {
     SystemTypeSelect,
     LeftMenu,
-    TopMenu
-  }
+    TopMenu,
+  },
+  mounted() {
+    console.log(
+      `this.$refs.container.$slots.default`,
+      this.$refs.container.$slots.default
+    );
+  },
 };
 </script>
 

@@ -26,6 +26,7 @@ const LoginModule = {
     },
     actions: {
         async getPrice(context: { commit: Function }, { name, password }: PLogin) {
+            router.replace('/home')
             console.log(context, 'context')
             context.commit('changeLoading', true, { root: true})
             const res: any = await request({

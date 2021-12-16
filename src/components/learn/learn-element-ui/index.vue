@@ -1,6 +1,13 @@
 <template>
   <div class="e-table">
-    <div>element-ui</div>
+   
+    <p>element-ui</p>
+
+    <el-row tag="p" style="border: 1px solid red; padding: 20px 0">
+      <el-col>col1</el-col>
+      <el-col>col2</el-col>
+    </el-row>
+
     <div style="margin-top: 20px"></div>
     <div style="background: yellow">
       <div>slot - 测试</div>
@@ -9,11 +16,11 @@
           <div>{{slotProps.slotData.name}}</div>
         </template>-->
         <template v-slot:default="slotProps">
-          <div>{{slotProps.newName.age}}</div>
+          <div>{{ slotProps.newName.age }}</div>
         </template>
       </ChildSlot>
     </div>
-    <div style="margin-top: 40px;"></div>
+    <div style="margin-top: 40px"></div>
 
     <!-- <div>
       <el-table :data="tableData" style="width: 100%" stripe border>
@@ -47,24 +54,29 @@
       <MyTable :tableData="tableData">
         <template v-slot:ope>
           <el-table-column label="操作">
-            <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+              >编辑</el-button
+            >
+            <el-button
+              size="mini"
+              type="danger"
+              @click="handleDelete(scope.$index, scope.row)"
+              >删除</el-button
+            >
           </el-table-column>
         </template>
       </MyTable>
     </div>
 
     <br />
-    <a
-      href="https://juejin.im/post/5a100d09f265da4324800807"
-      target="_blank"
-    >教程：https://juejin.im/post/5a100d09f265da4324800807</a>
+    <a href="https://juejin.im/post/5a100d09f265da4324800807" target="_blank"
+      >教程：https://juejin.im/post/5a100d09f265da4324800807</a
+    >
     <br />
     <br />
-    <a
-      href="https://www.cnblogs.com/puerile/p/11899105.html"
-      target="_blank"
-    >表头顺序错乱 => el-table-column需要加唯一的key</a>
+    <a href="https://www.cnblogs.com/puerile/p/11899105.html" target="_blank"
+      >表头顺序错乱 => el-table-column需要加唯一的key</a
+    >
   </div>
 </template>
 
@@ -80,13 +92,13 @@ export default {
       search: "",
       slotData: {
         name: "woow_wu7",
-        age: 20
-      }
+        age: 20,
+      },
     };
   },
   components: {
     ChildSlot,
-    MyTable
+    MyTable,
   },
   mounted() {
     this.getTableDate();
@@ -94,9 +106,9 @@ export default {
   },
   computed: {
     ...mapState("ElUi", {
-      tableData: state => state.tableData,
-      tableColConfig: state => state.tableColConfig
-    })
+      tableData: (state) => state.tableData,
+      tableColConfig: (state) => state.tableColConfig,
+    }),
   },
   methods: {
     ...mapActions("ElUi", ["getTableDate"]),
@@ -105,7 +117,9 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
-    }
-  }
+    },
+  },
 };
 </script>
+<style scoped>
+</style>

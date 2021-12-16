@@ -1,6 +1,6 @@
 // import path from 'path'
 
-module.exports = {  
+module.exports = { 
   runtimeCompiler: true,  // runtime + compiler 版本
   devServer: {
     // contentBase: path.join(__dirname, 'dist'),
