@@ -56,7 +56,6 @@ export default {
   padding: 0 20px;
   display: flex;
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
 }
