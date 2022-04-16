@@ -67,6 +67,14 @@ const learnRoutes = [
         menuName: "keep-alive",
         icon: "el-icon-platform-eleme",
       },
+      {
+        path: "/learn/directive",
+        name: "Directive",
+        component: () =>
+          import(/* webpackChunkName: "KeepAlive" */ "../views/Directive.vue"),
+        menuName: "directive",
+        icon: "el-icon-platform-eleme",
+      },
     ],
   },
 ];

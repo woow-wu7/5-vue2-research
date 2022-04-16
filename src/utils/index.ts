@@ -1,7 +1,7 @@
 export const getRoutesModule = function() {
   let modules: RoutesType[] = []
   const requireContext = require.context('../router', false, /\.ts$/)
-  console.log(requireContext, '22')
+  // console.log(requireContext, '22')
 
   requireContext.keys().forEach(module => {
     if (module === './index.ts') {
@@ -14,7 +14,7 @@ export const getRoutesModule = function() {
 
 export const getSelectOptions = () => {
   return getRoutesModule().map(obj => {
-    console.log(obj, '999777')
+    // console.log(obj, '999777')
     return {
       value: obj.path.slice(1),
       label: obj.selectName

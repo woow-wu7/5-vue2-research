@@ -26,6 +26,13 @@ export const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "Layout" */ "../views/KeepAlive.vue"),
     children: getRoutesModule(),
   },
+  {
+    path: "/directive",
+    name: "Directive",
+    component: () =>
+      import(/* webpackChunkName: "Layout" */ "../views/Directive.vue"),
+    children: getRoutesModule(),
+  },
 ];
 
 const router = new VueRouter({
@@ -35,7 +42,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(store.state.cancelFns, "store.state.cancelFns");
+  // console.log(store.state.cancelFns, "store.state.cancelFns");
   store.state.cancelFns.forEach((cancel) => {
     console.log(cancel, "22266");
     cancel("取消");
