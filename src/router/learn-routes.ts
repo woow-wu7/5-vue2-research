@@ -71,7 +71,7 @@ const learnRoutes = [
         path: "/learn/directive",
         name: "Directive",
         component: () =>
-          import(/* webpackChunkName: "KeepAlive" */ "../views/Directive.vue"),
+          import(/* webpackChunkName: "Directive" */ "../views/Directive.vue"),
         menuName: "directive",
         icon: "el-icon-platform-eleme",
       },

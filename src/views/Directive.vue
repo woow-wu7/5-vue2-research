@@ -2,6 +2,37 @@
   <div class="directive">
     <h1>vue指令</h1>
     <input type="text" v-focus />
+
+    <main>
+      <button @click.stop="showModal = true">弹窗</button>
+      <div
+        style="
+          position: fixed;
+          top: 0%;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.6);
+        "
+        v-show="showModal"
+      >
+        <!-- 自定义指令 -->
+        <div
+          style="
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            height: 200px;
+            width: 400px;
+            background: white;
+            box-shadow: -1px -1px 10px -1px rgba(0, 0, 0, 0.1);
+          "
+          v-click-out="clickOut"
+        >
+          通过 v-click-out 指令实现 -> 点击modal外部关闭modal
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -45,16 +76,43 @@
 // - 一键copy
 // - 点击外部触发事件 v-click-out
 
+// 5
+// 实现 v-click-out
+// - 功能：点击标签外部触发事件
+// - 运用：比如弹窗，点击modal外部关闭弹窗
+// 5.1
+// Node.contains(target)
+// 概念：返回 boolean，表示 ( 传入的target节点 ) 是否是 ( 该节点 ) 的 ( 后代节点 )
+// 注意：两种说话都是OK的，1.node节点是否包含target节点 2. target是否是node的后代节点
+
 export default {
   name: "Directive",
   data() {
-    return {};
+    return {
+      showModal: false,
+    };
   },
   directives: {
     focus: {
       inserted(el, binding, vnode, oldVnode) {
         el.focus();
       },
+    },
+    clickOut: {
+      bind(el, binding) {
+        function handler(e) {
+          if (el.contains(e.target)) return;
+          if (typeof binding.value === "function") {
+            binding.value();
+          }
+        }
+        document.addEventListener("click", handler);
+      },
+    },
+  },
+  methods: {
+    clickOut() {
+      this.showModal = false;
     },
   },
 };
