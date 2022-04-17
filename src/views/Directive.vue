@@ -1,6 +1,6 @@
 <template>
   <div class="directive">
-    <h1>vue指令</h1>
+    <h1>vue指令 vue-click-out</h1>
     <input type="text" v-focus />
 
     <main>
@@ -23,13 +23,15 @@
             top: 40%;
             left: 40%;
             height: 200px;
-            width: 400px;
+            width: 600px;
             background: white;
             box-shadow: -1px -1px 10px -1px rgba(0, 0, 0, 0.1);
           "
           v-click-out="clickOut"
         >
-          通过 v-click-out 指令实现 -> 点击modal外部关闭modal
+          <div>通过 v-click-out 指令实现 -> 点击modal外部关闭modal</div>
+          <br />
+          <div>核心api：Node.container(target)</div>
         </div>
       </div>
     </main>
@@ -66,7 +68,8 @@
 //    - binding.value：可以是字符串，也可以是对象
 
 // 3
-// 资料：https://vue3js.cn/interview/vue/directive.html#%E4%B8%89%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF
+// 资料：
+// - https://vue3js.cn/interview/vue/directive.html#%E4%B8%89%E3%80%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF
 
 // 4
 // 应用

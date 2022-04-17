@@ -75,6 +75,14 @@ const learnRoutes = [
         menuName: "directive",
         icon: "el-icon-platform-eleme",
       },
+      {
+        path: "/learn/loading",
+        name: "Loading",
+        component: () =>
+          import(/* webpackChunkName: "Loading" */ "../views/Loading.vue"),
+        menuName: "loading",
+        icon: "el-icon-platform-eleme",
+      },
     ],
   },
 ];
