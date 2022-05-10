@@ -33,6 +33,13 @@ export const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "Layout" */ "../views/Directive.vue"),
     children: getRoutesModule(),
   },
+  {
+    path: "/path-var/:id",
+    name: "PathVar",
+    component: () =>
+      import(/* webpackChunkName: "Layout" */ "../views/PathVar.vue"),
+    children: getRoutesModule(),
+  },
 ];
 
 const router = new VueRouter({

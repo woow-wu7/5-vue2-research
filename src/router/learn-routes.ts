@@ -76,6 +76,14 @@ const learnRoutes = [
         icon: "el-icon-platform-eleme",
       },
       {
+        path: "/learn/path-var/:id",
+        name: "PathVar",
+        component: () =>
+          import(/* webpackChunkName: "Directive" */ "../views/PathVar.vue"),
+        menuName: "PathVar",
+        icon: "el-icon-platform-eleme",
+      },
+      {
         path: "/learn/loading",
         name: "Loading",
         component: () =>
