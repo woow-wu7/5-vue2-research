@@ -21,10 +21,34 @@
     <br />
     <br />
     <br />
-    <section>
+    <section style="border: 1px solid black; padding: 20px; background: yellow">
       <p>测试 vue.nextTick</p>
       <p ref="countRef">{{ count }}</p>
       <button @click="add">增加count</button>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <section style="border: 1px solid black; padding: 20px; background: yellow">
+      <p>测试 v-for 和 v-if 的优先级</p>
+
+      <!-- 报错 -->
+      <!-- <ul>
+        <li v-for="(obj, index) in list" v-if="obj.isShow" :key="index">
+          {{ obj.text }}
+        </li>
+      </ul> -->
+
+      <!-- 不要在同一个元素上，同时使用v-if和v-for，因为v-for的优先级 > v-if -->
+      <!-- 1. 先通过 computed 过滤要显示的元素，在 v-for -->
+      <!-- 2. 如果动态修改显示隐藏整个节点，可以将 v-if 提高到容器节点 -->
+      <ul>
+        <li v-for="(obj, index) in filterShow" :key="index">
+          {{ obj.text }}
+        </li>
+      </ul>
     </section>
   </div>
 </template>
@@ -42,7 +66,30 @@ export default {
     return {
       show: false,
       count: 1,
+      list: [
+        {
+          isShow: true,
+          text: 1,
+        },
+        {
+          isShow: false,
+          text: 2,
+        },
+        {
+          isShow: true,
+          text: 3,
+        },
+        {
+          isShow: true,
+          text: 4,
+        },
+      ],
     };
+  },
+  computed: {
+    filterShow() {
+      return this.list.filter((value) => value.isShow);
+    },
   },
   methods: {
     // 1. 指令方式
@@ -83,7 +130,6 @@ export default {
     },
     add() {
       this.count = this.count + 1;
-
 
       console.log(
         " data更新，拿不到最新的DOM :>> ",
