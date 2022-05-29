@@ -1,19 +1,31 @@
 <template>
   <div class="loading">
-    <h1>element-ui Loading</h1>
+    <header class="header">
+      <h1>element-ui Loading</h1>
 
-    <button v-loading.fullscreen.lock.body="show" @click="change">
-      loading-指令方式；支持修饰符有fullscreen，lock，body
-    </button>
+      <button v-loading.fullscreen.lock.body="show" @click="change">
+        loading-指令方式；支持修饰符有fullscreen，lock，body
+      </button>
 
-    <button @click="changePrototype">
-      loading-原型调用的方式 this.$loading; 可以在组件中通过 this.$loading
-      来调用，因为已经挂在到vue原型上
-    </button>
+      <button @click="changePrototype">
+        loading-原型调用的方式 this.$loading; 可以在组件中通过 this.$loading
+        来调用，因为已经挂在到vue原型上
+      </button>
 
-    <button @click="changeService" id="loading-target">
-      loading-服务方式; Loading.service(options)
-    </button>
+      <button @click="changeService" id="loading-target">
+        loading-服务方式; Loading.service(options)
+      </button>
+    </header>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <section>
+      <p>测试 vue.nextTick</p>
+      <p ref="countRef">{{ count }}</p>
+      <button @click="add">增加count</button>
+    </section>
   </div>
 </template>
 
@@ -29,6 +41,7 @@ export default {
   data() {
     return {
       show: false,
+      count: 1,
     };
   },
   methods: {
@@ -68,6 +81,38 @@ export default {
         loadingInstance.close();
       }, 1000);
     },
+    add() {
+      this.count = this.count + 1;
+
+
+      console.log(
+        " data更新，拿不到最新的DOM :>> ",
+        this.$refs.countRef.innerHTML
+      );
+
+      // 0
+      // this.$nextTick
+      // Vue.nextTick
+      // 作用：当 ( 数据 ) 修改后，获取更新后的 ( 最新DOM )
+
+      // 1
+      // this.$next 参数回调
+      this.$nextTick(function () {
+        console.log(
+          " this.$nextTick参数回调 - data更新，可以拿到最新的DOM :>> ",
+          this.$refs.countRef.innerHTML
+        );
+      });
+
+      // 2
+      // this.$nextTick 返回 promise
+      this.$nextTick().then(() => {
+        console.log(
+          " this.$nextTick返回promise - data更新，可以拿到最新的DOM :>> ",
+          this.$refs.countRef.innerHTML
+        );
+      });
+    },
   },
 };
 </script>
@@ -75,6 +120,7 @@ export default {
 <style scoped>
 .loading {
   border: 2px solid blue;
+  padding: 20px;
 }
 .test-component,
 .test-keepalive {
