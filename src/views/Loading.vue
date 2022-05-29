@@ -73,6 +73,9 @@ export default {
 </script>
 
 <style scoped>
+.loading {
+  border: 2px solid blue;
+}
 .test-component,
 .test-keepalive {
   border: 2px solid black;
