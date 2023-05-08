@@ -39,7 +39,7 @@
 
     <div>
       <div style="margin-top: 10px">未用slot的table优化</div>
-      <el-table :data="tableData" style="width: 100%" stripe border>
+      <el-table :data="tableData" style="width: 100%" stripe border class="table-container">
         <el-table-column
           v-for="colItem in tableColConfig"
           :key="colItem.prop"
@@ -122,4 +122,7 @@ export default {
 };
 </script>
 <style scoped>
+.table-container {
+  
+}
 </style>

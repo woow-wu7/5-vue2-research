@@ -1,5 +1,5 @@
 <template>
-  <el-container ref="container">
+  <el-container ref="container" class="layout">
     <el-header id="header">
       <el-aside width="250px" class="header-left">
         <SystemTypeSelect />
@@ -66,10 +66,18 @@ $aside-width = 250px;
   }
 }
 </style>
-<style lang="stylus">
+<style   scoped>
 .content-aside {
   width: 250px !important;
-  // line-height: calc(100vh - 60px);
+}
+
+.layout{
+  color: red
+}
+
+
+:deep(.child) {
+  color: blue;
 }
 </style>
 
